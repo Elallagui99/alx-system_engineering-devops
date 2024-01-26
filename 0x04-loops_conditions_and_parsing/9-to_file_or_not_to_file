@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #information about file school
 # if the file exists: school file exists
 # if the file does not exist: school file does not exist
