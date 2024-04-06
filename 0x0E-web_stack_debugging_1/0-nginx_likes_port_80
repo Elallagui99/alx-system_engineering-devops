@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
-# start apache on the 265-0 Doker container
-echo "ServerName localhost" >> /etc/apache2.conf
-service apache2 start
+# Check if Nginx is listening on port 80
+if ! ss -tln | grep -q ':80'; then
+    # Install Nginx if not already installed
+    apt-get update
+    apt-get install -y nginx
+    # Add the listen directive to Nginx configuration
+    sed -i '/^}/i \    listen 80;' /etc/nginx/sites-available/default
+    # Restart Nginx to apply changes
+    systemctl restart nginx
+fi
+
