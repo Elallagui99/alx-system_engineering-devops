@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# start apache
+# start apache on the 265-0 Doker container
+echo "ServerName localhost" >> /etc/apache2.conf
 service apache2 start
