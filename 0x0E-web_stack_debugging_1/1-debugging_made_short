@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# shorter ver
+
+if ! ss -tln | grep -q ':80'; then
+    apt-get update
+    apt-get install -y nginx
+    sed -i '/^}/i \    listen 80;' /etc/nginx/sites-available/default
+    systemctl restart nginx
+fi
