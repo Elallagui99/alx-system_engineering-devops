@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# run apache on designateed container
-echo "ServerName localhost" >> /etc/apache2.cnf
-sudo service apache2 start
+# start apache
+service apache2 start
